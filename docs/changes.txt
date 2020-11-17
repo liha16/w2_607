@@ -1,0 +1,32 @@
+RUNNABLE VERSION:
+http://casaolive.es/1dv607/w2/index.php
+
+CHANGES:
+I did a lot of changes to my code. Therefore my diagrams look totally different from before the first peer review. 
+
+
+CLASS DIAGRAM:
+I did not aim to get a low coupling as the class diagram tells, but a high cohesion. Next workshop is about applying patterns.
+I intentionally left out attributes to the class diagram and left what I thought was the most important.
+Roles and multiplicity are optional so that is something that I left out aswell as it would add much value. 
+
+SEQUENCE DIAGRAM:
+In the "create member" I added more details, names of instances and more correct message names. I took out the db file as it is not an object.
+I also decided not to show what happens after the creation is made, as that is "show members" displaying.
+
+I considered suggestions from my reviewers and added what data I send to different methods. Some minor errors were mentioned and moslty they mentioned my assosiations. 
+They were bad and I had to change a lot...
+
+CODE:
+The static variables are intentionally created as I wanted to mark that they should be assigned once and never changed.
+I fixed my "todo-list" from last version, before peer review.
+
+FUTURE IMRPOVEMENT:
+I know I am wokring with arrays mixed with objects and that is not good, however I left it as it is because I am running short of time and the requirements are fullfilled.
+
+
+FAILS DETECTED AFTER DEADLINE:
+
+\View\BoatRegisterView has to have a ---> to \Model\MemberList
+\View\MemberListView has to have a ---> to \Model\MemberList
+

@@ -1,0 +1,63 @@
+RUNNABLE VERSION:
+http://casaolive.es/1dv607/w2/index.php
+
+
+CLASS DIAGRAM:
+- I added roles to the associations.
+- I eliminated the dependency between Route and MemberList as it already has an association.
+-
+
+
+tips; om alla klasser inuti ett package har dependency till samma grej i något annat package så räcker det att du drar en pil från själva packaget till målet
+så blir det mindre klutter 
+
+
+SEQUENCE DIAGRAM:
+- I added the 2 function calls to the sequence diagram that I had left out in previous submission, after render(view). 
+- I also added the if-statement for verbose or compact list.
+
+
+
+CODE:
+- There was a bug on the req. for adding a member, the last member got deleted when a member was added.
+Actually the error was that I pushed a new member to an array by index and not with a simple array_push(); So the error was only detectable after having deleted a member previously in a moment.
+This error was also in BoatList, the exact same bug and fix.
+- For some reason I worked with an array of boats in the boatlist View even if there was only one Boat rendered at a time, never more. 
+- I bumped into more bugs along the way. I had specified type "int" instead of "float" which made it impossible to add a correct length to boats.
+- I made a lot of methods private instead of public.
+
+HIDDEN DEPENDECIES:
+- As I now work with objects I no longer have so many hidden dependencies. 
+
+
+OO DESIGN:
+- I have the id of the boats saved in the members array boats, so it is used as soon as a boat is registered on that member. The boats also hold an owner id that can be linked aswell. I kept it so it would be easier to, for example, print all boats and still know who the owner is. Also it was better to link them when editing a boat. We know the owner directly.
+- I specified return type and argument types throughout to improve type hinting.
+- I created an interface for the views that implement getHTML().
+- I changed so that a member object is created and encoded to json directly and not made an array first. This is more OO design.
+It is a bit tricky to work with the objects with a permanent storage as I have to change their types on the way.
+- Everytime I load the content from the files I create objects out of the json and make a list of the objects now.
+- Instead of working with json arrays I now work with the objects in the views to output the data. To be able to do that I hade to add a lot of getters and setter.
+- I also made the above changes to Boat and BoatList, I work with objects now. This made type hinting automatically much better.
+
+
+GENERAL:
+I actually have no idea why I started to do everything in json and kept it like that.
+
+I also believe the design is poor, specially by looking at the class diagram. I almost want to begin from zero but I don't have time so I fixed what was requested for this time.
+
+ÄNDRA I DIAGRAM
+
+Handle error when id not found
+
+
+FRÅGA:
+- Är hidden dependencies ok när det kommer till att skapa object av min json-fil? Jag måste söka igenom värdena i arrayen(json) för att tilldela objektet.
+Annars har jag nog lyckats få bort det mesta.
+
+- Är det ok att BARA ha pil till bara ett interface och inte klassen även om ena klassen refererar fler metoder än de som är specificerade i interfacet?
+
+
+FAILS DETECTED AFTER DEADLINE:
+Gör om i routern så objekten skapas eftersom? Då slipper du associations. Plus snyggare diagram
+Page Layout view är väll ---> till alla views?
